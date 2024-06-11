@@ -1,4 +1,4 @@
-module puente
+module github.com/nejdetkadir/puente
 
 go 1.22
 
