@@ -38,6 +38,10 @@ import (
 )
 
 func main() {
+    lambda.Start(handler)
+}
+
+func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
     router := puente.New()
 
     router.Get("/hello", func(request events.APIGatewayProxyRequest) events.APIGatewayProxyResponse {
@@ -47,7 +51,7 @@ func main() {
         }
     })
 
-    lambda.Start(router.ListenAPIGateway)
+    return router.ListenAPIGateway(request), nil
 }
 ```
 
